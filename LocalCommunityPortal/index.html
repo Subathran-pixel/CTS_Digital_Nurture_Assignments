@@ -263,6 +263,8 @@
 
             let event = document.getElementById("eventType").value;
 
+              console.log("Selected Event:", event);
+
             if (event == "Music Festival") {
                 document.getElementById("fee").innerHTML = "Fee : ₹100";
             }
@@ -281,10 +283,14 @@
             else if (event == "Community Gathering") {
                 document.getElementById("fee").innerHTML = "Fee : ₹50";
             }
-
+           
         }
 
         function showConfirmation() {
+
+
+    console.log("Registration button clicked");
+
             alert("Registration Submitted");
         }
 
@@ -348,6 +354,8 @@ function clearPreferences() {
 
 function findLocation() {
 
+
+      console.log("Finding user location");
     if (navigator.geolocation) {
 
         navigator.geolocation.getCurrentPosition(
