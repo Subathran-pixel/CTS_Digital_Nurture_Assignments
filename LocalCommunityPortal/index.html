@@ -156,7 +156,8 @@
         <label>Phone Number : </label>
         <input type="text"
             id="phone"
-            onblur="validatePhone()">
+            onblur="validatePhone()"
+            required>
 
         <br><br>
 
@@ -169,8 +170,8 @@
         <label>Event Type : </label>
 
         <select id="eventType"
-            onchange="showFee()"
-            required>
+        onchange="showFee(); savePreference();"
+        required>
 
             <option value="">Select Event</option>
             <option>Music Festival</option>
@@ -207,6 +208,13 @@
             onclick="showConfirmation()">
             Register
         </button>
+      
+        <br>
+        <br>
+
+        <button type="button" onclick="clearPreferences()">
+    Clear Preferences
+</button>
 
         <br><br>
 
@@ -293,6 +301,40 @@
             return "Are you sure you want to leave this page?";
 
         }
+
+        function savePreference() {
+
+    let eventType =
+        document.getElementById("eventType").value;
+
+    localStorage.setItem("preferredEvent", eventType);
+
+}
+
+window.onload = function () {
+
+    let savedEvent =
+        localStorage.getItem("preferredEvent");
+
+    if (savedEvent) {
+
+        document.getElementById("eventType").value =
+            savedEvent;
+
+        showFee();
+
+    }
+
+}
+
+function clearPreferences() {
+
+    localStorage.clear();
+    sessionStorage.clear();
+
+    alert("Preferences Cleared");
+
+}
 
     </script>
 
