@@ -4,6 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Local Community Event Portal</title>
+
+    <style>
+        #welcomeBanner {
+            background-color: blue;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -16,15 +27,26 @@
         <a href="help.html" target="_blank">Help</a>
     </nav>
 
-    <!--------Home Section------------>
+    <!-- Home Section -->
     <section id="home">
-        <h1>Home</h1>
-        <p>Welcome to the Local Community Event Portal.</p>
+
+        <div id="welcomeBanner">
+            Welcome User
+        </div>
+
+        <p>
+            <span style="color:red; font-weight:bold;">
+                Special Offer
+            </span>
+        </p>
+
+        <p class="highlight">
+            Registration Open
+        </p>
+
     </section>
 
-    <hr>
-
-    <!-------Events Section-->
+    <!-- Events Section -->
     <section id="events">
         <h1>Events</h1>
         <p>Music Festival</p>
@@ -32,9 +54,7 @@
         <p>Food Carnival</p>
     </section>
 
-    <hr>
-
-    <!----Contact Section---------->
+    <!-- Contact Section -->
     <section id="contact">
         <h1>Contact</h1>
         <p>Email : community@gmail.com</p>
