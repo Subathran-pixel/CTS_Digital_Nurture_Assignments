@@ -65,46 +65,65 @@
 
             <tr>
                 <td>
-                    <img src="images/event1.jpg" alt="Event 1"
-                        title="Music Festival" class="eventImage"
-                        width="200">
+                    <img src="images/event1.jpg"
+                        alt="Event 1"
+                        title="Music Festival"
+                        class="eventImage"
+                        width="200"
+                        ondblclick="this.width=300">
+
                     <p>Music Festival</p>
                 </td>
 
                 <td>
-                    <img src="images/event2.jpg" alt="Event 2"
-                        title="Sports Meet" class="eventImage"
+                    <img src="images/event2.jpg"
+                        alt="Event 2"
+                        title="Sports Meet"
+                        class="eventImage"
                         width="200">
+
                     <p>Sports Meet</p>
                 </td>
 
                 <td>
-                    <img src="images/event3.jpg" alt="Event 3"
-                        title="Food Carnival" class="eventImage"
+                    <img src="images/event3.jpg"
+                        alt="Event 3"
+                        title="Food Carnival"
+                        class="eventImage"
                         width="200">
+
                     <p>Food Carnival</p>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <img src="images/event4.jpg" alt="Event 4"
-                        title="Art Exhibition" class="eventImage"
+                    <img src="images/event4.jpg"
+                        alt="Event 4"
+                        title="Art Exhibition"
+                        class="eventImage"
                         width="200">
+
                     <p>Art Exhibition</p>
                 </td>
 
                 <td>
-                    <img src="images/event5.jpg" alt="Event 5"
-                        title="Book Fair" class="eventImage"
+                    <img src="images/event5.jpg"
+                        alt="Event 5"
+                        title="Book Fair"
+                        class="eventImage"
                         width="200">
+
                     <p>Book Fair</p>
                 </td>
 
                 <td>
-                    <img src="images/event6.jpg" alt="Event 6"
-                        title="Community Gathering" class="eventImage"
+                    <img src="images/event6.jpg"
+                        alt="Event 6"
+                        title="Community Gathering"
+                        class="eventImage"
                         width="200">
+
                     <p>Community Gathering</p>
                 </td>
             </tr>
@@ -118,29 +137,41 @@
     <h2>Event Registration Form</h2>
 
     <form onsubmit="msg.value='Registration Successful'; return false;">
-     
+
         <label>Name : </label>
         <input type="text"
-               placeholder="Enter Name"
-               required
-               autofocus>
+            placeholder="Enter Name"
+            required
+            autofocus>
 
         <br><br>
 
-        <label> Email : </label>
+        <label>Email : </label>
         <input type="email"
-               placeholder="Enter Email"
-               required>
+            placeholder="Enter Email"
+            required>
 
         <br><br>
-        
-        <label>Date Of Birth : </label>
+
+        <label>Phone Number : </label>
+        <input type="text"
+            id="phone"
+            onblur="validatePhone()">
+
+        <br><br>
+
+        <label>Date : </label>
         <input type="date"
-               required>
+            required>
 
         <br><br>
 
-        <select required>
+        <label>Event Type : </label>
+
+        <select id="eventType"
+            onchange="showFee()"
+            required>
+
             <option value="">Select Event</option>
             <option>Music Festival</option>
             <option>Sports Meet</option>
@@ -149,17 +180,31 @@
             <option>Book Fair</option>
             <option>Community Gathering</option>
 
-        
         </select>
 
-        <br><br>
+        <p id="fee"></p>
+
+        <br>
+
+        <label>Message : </label>
 
         <textarea placeholder="Enter Message"
-                  required></textarea>
+            required></textarea>
 
         <br><br>
 
-        <button type="submit">
+        <label>Feedback : </label>
+
+        <textarea id="feedback"
+            placeholder="Enter Feedback"
+            onkeyup="countCharacters()"></textarea>
+
+        <p id="charCount">Characters : 0</p>
+
+        <br>
+
+        <button type="submit"
+            onclick="showConfirmation()">
             Register
         </button>
 
@@ -175,6 +220,58 @@
         <p>Email : community@gmail.com</p>
         <p>Phone : +91 9876543210</p>
     </section>
+
+    <script>
+
+        function validatePhone() {
+
+            let phone = document.getElementById("phone").value;
+
+            if (phone.length != 10 || isNaN(phone)) {
+                alert("Enter a valid 10 digit phone number");
+            }
+
+        }
+
+        function showFee() {
+
+            let event = document.getElementById("eventType").value;
+
+            if (event == "Music Festival") {
+                document.getElementById("fee").innerHTML = "Fee : ₹100";
+            }
+            else if (event == "Sports Meet") {
+                document.getElementById("fee").innerHTML = "Fee : ₹200";
+            }
+            else if (event == "Food Carnival") {
+                document.getElementById("fee").innerHTML = "Fee : ₹150";
+            }
+            else if (event == "Art Exhibition") {
+                document.getElementById("fee").innerHTML = "Fee : ₹120";
+            }
+            else if (event == "Book Fair") {
+                document.getElementById("fee").innerHTML = "Fee : ₹80";
+            }
+            else if (event == "Community Gathering") {
+                document.getElementById("fee").innerHTML = "Fee : ₹50";
+            }
+
+        }
+
+        function showConfirmation() {
+            alert("Registration Submitted");
+        }
+
+        function countCharacters() {
+
+            let count = document.getElementById("feedback").value.length;
+
+            document.getElementById("charCount").innerHTML =
+                "Characters : " + count;
+
+        }
+
+    </script>
 
 </body>
 
