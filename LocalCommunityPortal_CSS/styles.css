@@ -8,7 +8,7 @@ body {
     background-color: blue;
 }
 
-/* Highlight Styles */
+/* Highlight Text Styles */
 .highlight {
     background-color: yellow;
 }
@@ -18,9 +18,17 @@ body {
     border: 2px solid black;
 }
 
-/* Form Styles */
+/* Registration Form Styles */
 form {
     border: 1px solid black;
     padding: 10px;
     width: 300px;
+}
+
+/* Main CTA Button Styles */
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 8px;
+    border: none;
 }
