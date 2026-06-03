@@ -1,0 +1,26 @@
+/* Body Styles */
+body {
+    background-color: lightgray;
+}
+
+/* Welcome Banner Styles */
+#welcomeBanner {
+    background-color: blue;
+}
+
+/* Highlight Styles */
+.highlight {
+    background-color: yellow;
+}
+
+/* Event Image Styles */
+.eventImage {
+    border: 2px solid black;
+}
+
+/* Form Styles */
+form {
+    border: 1px solid black;
+    padding: 10px;
+    width: 300px;
+}
