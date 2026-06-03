@@ -7,7 +7,7 @@
 
 /* Body Styles */
 body {
-    background-color: #d9d9d9; /* Fallback Color */
+    background-color: #d9d9d9;
     background-image: url("images/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -16,6 +16,8 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     line-height: 1.6;
+
+    min-height: 100vh;
 }
 
 /* Main Header */
@@ -29,6 +31,8 @@ body {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
+
+    width: 100%;
 }
 
 /* Section Headings */
@@ -72,6 +76,9 @@ p {
 /* Event Images */
 .eventImage {
     border: 2px solid black;
+    width: 15vw;
+    max-width: 200px;
+    height: auto;
 }
 
 /* Highlight Text */
@@ -83,7 +90,8 @@ p {
 form {
     border: 1px solid black;
     padding: 10px;
-    width: 300px;
+    width: 80%;
+    max-width: 400px;
     background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -127,17 +135,18 @@ span {
 }
 
 /* Navigation Menu */
-/* Navigation Menu */
 .navMenu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
     list-style-type: none;
     list-style-position: inside;
     padding: 0;
     margin: 0;
-    text-align: center;
 }
 
 .navMenu li {
-    display: inline-block;
     padding: 10px;
     margin: 5px;
 }
@@ -180,12 +189,14 @@ tr:nth-child(even) td {
     background-color: #d9eaf7;
 }
 
+/* Form Field Highlight */
 input:focus,
 textarea:focus,
 select:focus {
     outline: 3px solid red;
 }
 
+/* Visibility vs Display */
 .hiddenBox {
     visibility: hidden;
 }
@@ -194,9 +205,48 @@ select:focus {
     display: none;
 }
 
+/* Multi Column Layout */
 .newsArticle {
     column-count: 2;
     column-gap: 30px;
     column-rule: 1px solid gray;
     padding: 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+
+    .navMenu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mainHeader {
+        font-size: 20px;
+    }
+
+    h1,
+    h2 {
+        font-size: 18px;
+    }
+
+    .eventImage {
+        width: 120px;
+    }
+
+    form {
+        width: 90%;
+    }
+
+    table,
+    tr,
+    td,
+    th {
+        display: block;
+        width: 100%;
+    }
+
+    .newsArticle {
+        column-count: 1;
+    }
 }
