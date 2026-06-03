@@ -628,21 +628,70 @@ let email =
 
     if (valid) {
 
-        alert("Registration Successful");
-         
+    let userData = {
 
-        console.log(
-            "Name:",
-            name,
-            "Email:",
-            email,
-            "Event:",
-            selectedEvent
-        );
+        name: name,
+        email: email,
+        event: selectedEvent
 
-        form.reset();
+    };
 
-    }
+    submitRegistration(userData);
+
+    form.reset();
+
+}
 
 });
+
+/* Exercise 12 */
+
+async function submitRegistration(userData) {
+
+    document.getElementById("responseMessage")
+        .textContent = "Submitting...";
+
+    setTimeout(async function () {
+
+        try {
+
+            let response = await fetch(
+                "https://jsonplaceholder.typicode.com/posts",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(userData)
+                }
+            );
+
+            if (response.ok) {
+
+                document.getElementById("responseMessage")
+                    .textContent =
+                    "Registration submitted successfully";
+
+            }
+            else {
+
+                document.getElementById("responseMessage")
+                    .textContent =
+                    "Registration failed";
+
+            }
+
+        }
+
+        catch(error) {
+
+            document.getElementById("responseMessage")
+                .textContent =
+                "Error connecting to server";
+
+        }
+
+    }, 2000);
+
+}
 
