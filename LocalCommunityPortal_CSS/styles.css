@@ -125,3 +125,38 @@ span {
     color: red;
     font-weight: bold;
 }
+
+/* Navigation Menu */
+/* Navigation Menu */
+.navMenu {
+    list-style-type: none;
+    list-style-position: inside;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.navMenu li {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+}
+
+/* Link States */
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+a:visited {
+    color: purple;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+a:active {
+    color: green;
+}
