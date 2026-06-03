@@ -1,0 +1,263 @@
+/* Universal Selector */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    background-color: rgba(255, 255, 255, 0.7);
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+    background-color: rgba(255, 255, 255, 0.15);
+background-blend-mode: lighten;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+
+    min-height: 100vh;
+
+    
+    text-align: center;
+}
+
+/* Main Header */
+#mainHeader {
+    background-color: rgba(0, 0, 255, 0.8);
+    color: #ffffff;
+    padding: 10px;
+
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    width: 100%;
+}
+
+/* Section Headings */
+h1,
+h2 {
+    background: linear-gradient(to right, #007BFF, #00C6FF);
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Grouping Selector */
+h3,
+p {
+    color: black;
+}
+
+/* Event Cards */
+.eventCard {
+    border: 2px solid black;
+    padding: 20px;
+    margin: 15px;
+    text-align: center;
+}
+
+/* Event Description Text */
+.eventCard p {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.8;
+}
+
+/* Event Images */
+.eventImage {
+    border: 2px solid black;
+    width: 15vw;
+    max-width: 200px;
+    height: auto;
+}
+
+/* Highlight Text */
+.highlight {
+    background-color: yellow;
+}
+
+/* Form Styles */
+form {
+    border: 1px solid black;
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Button Styles */
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Contact Section Text */
+#contact p {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+}
+
+/* Navigation Links */
+nav {
+    text-align: center;
+    padding: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Special Offer Text */
+span {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.specialOffer {
+    color: red;
+    font-weight: bold;
+}
+
+/* Navigation Menu */
+.navMenu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    list-style-type: none;
+    list-style-position: inside;
+    padding: 0;
+    margin: 0;
+}
+
+.navMenu li {
+    padding: 10px;
+    margin: 5px;
+}
+
+/* Link States */
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+a:visited {
+    color: purple;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+a:active {
+    color: green;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+/* Zebra Striping */
+tr:nth-child(even) td {
+    background-color: #d9eaf7;
+}
+
+/* Form Field Highlight */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 3px solid red;
+}
+
+/* Visibility vs Display */
+.hiddenBox {
+    visibility: hidden;
+}
+
+.noneBox {
+    display: none;
+}
+
+/* Multi Column Layout */
+.newsArticle {
+    column-count: 2;
+    column-gap: 30px;
+    column-rule: 1px solid gray;
+    padding: 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+
+    .navMenu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mainHeader {
+        font-size: 20px;
+    }
+
+    h1,
+    h2 {
+        font-size: 18px;
+    }
+
+    .eventImage {
+        width: 120px;
+    }
+
+    form {
+        width: 90%;
+    }
+
+    table,
+    tr,
+    td,
+    th {
+        display: block;
+        width: 100%;
+    }
+
+    .newsArticle {
+        column-count: 1;
+    }
+}
+
+form {
+    margin: 20px auto;
+}

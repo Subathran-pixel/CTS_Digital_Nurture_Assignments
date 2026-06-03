@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Local Community Event Portal</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+    <ul class="navMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="help.html" target="_blank">Help</a></li>
+    </ul>
+</nav>
+
+    <!-- Home Section -->
+    <section id="home">
+
+    <div id="mainHeader">
+        Welcome User
+    </div>
+
+    <p>
+        <span class="specialOffer">
+            Special Offer
+        </span>
+    </p>
+
+    <p class="highlight">
+        Registration Open
+    </p>
+
+    <!-- Exercise 8 -->
+    <p class="hiddenBox">
+        Hidden using visibility:hidden
+    </p>
+
+    <p class="noneBox">
+        Hidden using display:none
+    </p>
+
+</section>
+
+    <!-- Events Section -->
+    <section id="events">
+
+<h1>Events</h1>
+        <table>
+
+            <tr>
+        
+        
+    </tr>
+
+            <tr>
+                <td class="eventCard">
+                    <img src="images/event1.jpg"
+                        alt="Event 1"
+                        title="Music Festival"
+                        class="eventImage"
+                        width="200"
+                        ondblclick="this.width=300">
+
+                    <p>Music Festival</p>
+                </td>
+
+                <td class="eventCard">
+                    <img src="images/event2.jpg"
+                        alt="Event 2"
+                        title="Sports Meet"
+                        class="eventImage"
+                        width="200">
+
+                    <p>Sports Meet</p>
+                </td>
+
+                <td class="eventCard">
+                    <img src="images/event3.jpg"
+                        alt="Event 3"
+                        title="Food Carnival"
+                        class="eventImage"
+                        width="200">
+
+                    <p>Food Carnival</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="eventCard">
+                    <img src="images/event4.jpg"
+                        alt="Event 4"
+                        title="Art Exhibition"
+                        class="eventImage"
+                        width="200">
+
+                    <p>Art Exhibition</p>
+                </td>
+
+                <td class="eventCard">
+                    <img src="images/event5.jpg"
+                        alt="Event 5"
+                        title="Book Fair"
+                        class="eventImage"
+                        width="200">
+
+                    <p>Book Fair</p>
+                </td>
+
+               <td class="eventCard">
+                    <img src="images/event6.jpg"
+                        alt="Event 6"
+                        title="Community Gathering"
+                        class="eventImage"
+                        width="200">
+
+                    <p>Community Gathering</p>
+                </td>
+            </tr>
+
+        </table>
+
+    </section>
+
+    <!-- Registration Form -->
+
+    <h2>Community Bulletin</h2>
+
+<div class="newsArticle">
+    <p>
+        The Local Community Event Portal brings together residents through
+        cultural programs, sports events, book fairs, food festivals, and
+        social gatherings.
+
+        Community members can register online and receive updates about
+        upcoming activities. The portal encourages participation from people
+        of all age groups.
+
+        Regular events help strengthen relationships among residents and
+        promote local talent. Volunteers and organizers work together to
+        ensure successful event management.
+
+        New activities are announced every month, providing opportunities
+        for learning, entertainment, and networking within the community.
+
+        Workshops, competitions, awareness campaigns, and cultural programs
+        are conducted regularly. Residents are encouraged to share ideas and
+        contribute to community development.
+    </p>
+</div>
+
+    <h2>Event Registration Form</h2>
+
+    <form onsubmit="msg.value='Registration Successful'; return false;">
+
+        <label>Name : </label>
+        <input type="text"
+            placeholder="Enter Name"
+            required
+            autofocus>
+
+        <br><br>
+
+        <label>Email : </label>
+        <input type="email"
+            placeholder="Enter Email"
+            required>
+
+        <br><br>
+
+        <label>Phone Number : </label>
+        <input type="text"
+            id="phone"
+            onblur="validatePhone()"
+            required>
+
+        <br><br>
+
+        <label>Date : </label>
+        <input type="date"
+            required>
+
+        <br><br>
+
+        <label>Event Type : </label>
+
+        <select id="eventType"
+        onchange="showFee(); savePreference();"
+        required>
+
+            <option value="">Select Event</option>
+            <option>Music Festival</option>
+            <option>Sports Meet</option>
+            <option>Food Carnival</option>
+            <option>Art Exhibition</option>
+            <option>Book Fair</option>
+            <option>Community Gathering</option>
+
+        </select>
+
+        <p id="fee"></p>
+
+        <br>
+
+        <label>Message : </label>
+
+        <textarea placeholder="Enter Message"
+            required></textarea>
+
+        <br><br>
+
+        <label>Feedback : </label>
+
+        <textarea id="feedback"
+            placeholder="Enter Feedback"
+            onkeyup="countCharacters()"></textarea>
+
+        <p id="charCount">Characters : 0</p>
+
+        <br>
+
+        <button type="submit"
+            onclick="showConfirmation()">
+            Register
+        </button>
+      
+        <br>
+        <br>
+
+        <button type="button" onclick="clearPreferences()">
+    Clear Preferences
+</button>
+
+        <br><br>
+
+        <output name="msg"></output>
+
+    </form>
+
+    <!-- Event Promo Video -->
+
+    <h2>Event Promo Video</h2>
+
+    <video width="400" controls oncanplay="videoReady()">
+        <source src="video/event.mp4" type="video/mp4">
+    </video>
+
+    <p id="videoMessage"></p>
+
+    <h2>Find Nearby Events</h2>
+
+<button onclick="findLocation()">
+    Find Nearby Events
+</button>
+
+<p id="location"></p>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h1>Contact</h1>
+        <p>Email : community@gmail.com</p>
+        <p>Phone : +91 9876543210</p>
+    </section>
+
+    <script>
+
+        function validatePhone() {
+
+            let phone = document.getElementById("phone").value;
+
+            if (phone.length != 10 || isNaN(phone)) {
+                alert("Enter a valid 10 digit phone number");
+            }
+
+        }
+
+        function showFee() {
+
+            let event = document.getElementById("eventType").value;
+
+              console.log("Selected Event:", event);
+
+            if (event == "Music Festival") {
+                document.getElementById("fee").innerHTML = "Fee : ₹100";
+            }
+            else if (event == "Sports Meet") {
+                document.getElementById("fee").innerHTML = "Fee : ₹200";
+            }
+            else if (event == "Food Carnival") {
+                document.getElementById("fee").innerHTML = "Fee : ₹150";
+            }
+            else if (event == "Art Exhibition") {
+                document.getElementById("fee").innerHTML = "Fee : ₹120";
+            }
+            else if (event == "Book Fair") {
+                document.getElementById("fee").innerHTML = "Fee : ₹80";
+            }
+            else if (event == "Community Gathering") {
+                document.getElementById("fee").innerHTML = "Fee : ₹50";
+            }
+           
+        }
+
+        function showConfirmation() {
+
+
+    console.log("Registration button clicked");
+
+            alert("Registration Submitted");
+        }
+
+        function countCharacters() {
+
+            let count = document.getElementById("feedback").value.length;
+
+            document.getElementById("charCount").innerHTML =
+                "Characters : " + count;
+
+        }
+
+        function videoReady() {
+
+            document.getElementById("videoMessage").innerHTML =
+                "Video ready to play";
+
+        }
+
+        window.onbeforeunload = function () {
+
+            return "Are you sure you want to leave this page?";
+
+        }
+
+        function savePreference() {
+
+    let eventType =
+        document.getElementById("eventType").value;
+
+    localStorage.setItem("preferredEvent", eventType);
+
+}
+
+window.onload = function () {
+
+    let savedEvent =
+        localStorage.getItem("preferredEvent");
+
+    if (savedEvent) {
+
+        document.getElementById("eventType").value =
+            savedEvent;
+
+        showFee();
+
+    }
+
+}
+
+function clearPreferences() {
+
+    localStorage.clear();
+    sessionStorage.clear();
+
+    alert("Preferences Cleared");
+
+    
+
+}
+
+function findLocation() {
+
+
+      console.log("Finding user location");
+    if (navigator.geolocation) {
+
+        navigator.geolocation.getCurrentPosition(
+            showPosition,
+            showError,
+            {
+                enableHighAccuracy: true,
+                timeout: 5000
+            }
+        );
+
+    }
+    else {
+
+        document.getElementById("location").innerHTML =
+            "Geolocation is not supported.";
+
+    }
+
+}
+
+function showPosition(position) {
+
+    document.getElementById("location").innerHTML =
+        "Latitude : " +
+        position.coords.latitude +
+        "<br>Longitude : " +
+        position.coords.longitude;
+
+}
+
+function showError(error) {
+
+    if (error.code == 1) {
+
+        document.getElementById("location").innerHTML =
+            "Permission denied.";
+
+    }
+    else if (error.code == 3) {
+
+        document.getElementById("location").innerHTML =
+            "Request timed out.";
+
+    }
+    else {
+
+        document.getElementById("location").innerHTML =
+            "Unable to get location.";
+
+    }
+
+}
+    </script>
+
+</body>
+
+</html>
