@@ -416,3 +416,96 @@ function searchEvents(event) {
     console.log("Searching : " + searchText);
 
 }
+
+/* Exercise 9 */
+
+/* Display Events */
+
+function displayApiEvents(events) {
+
+    let output = "";
+
+    events.forEach(function(event) {
+
+        output += `
+            <p>
+                ${event.title}
+            </p>
+        `;
+
+    });
+
+    document.getElementById("apiEvents").innerHTML =
+        output;
+
+}
+
+/* Promise Version */
+
+function fetchEventsPromise() {
+
+    document.getElementById("loading").innerHTML =
+        "Loading...";
+
+    fetch("https://jsonplaceholder.typicode.com/posts")
+
+        .then(function(response) {
+
+            return response.json();
+
+        })
+
+        .then(function(data) {
+
+            document.getElementById("loading").innerHTML =
+                "";
+
+            displayApiEvents(data.slice(0, 5));
+
+        })
+
+        .catch(function(error) {
+
+            console.log(error);
+
+            document.getElementById("loading").innerHTML =
+                "Error Loading Data";
+
+        });
+
+}
+
+/* Async Await Version */
+
+async function fetchEventsAsync() {
+
+    try {
+
+        document.getElementById("loading").innerHTML =
+            "Loading...";
+
+        let response =
+            await fetch(
+                "https://jsonplaceholder.typicode.com/posts"
+            );
+
+        let data =
+            await response.json();
+
+        document.getElementById("loading").innerHTML =
+            "";
+
+        displayApiEvents(data.slice(0, 5));
+
+    }
+
+    catch(error) {
+
+        console.log(error);
+
+        document.getElementById("loading").innerHTML =
+            "Error Loading Data";
+
+    }
+
+}
