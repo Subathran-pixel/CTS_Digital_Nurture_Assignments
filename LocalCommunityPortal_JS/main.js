@@ -328,12 +328,14 @@ const domEvents = [
     {
         name: "Music Festival",
         category: "Music",
-        seats: 5
+        seats: 40,
+        maxSeats: 50
     },
     {
         name: "Sports Meet",
         category: "Sports",
-        seats: 3
+        seats: 25,
+        maxSeats: 30
     }
 ];
 
@@ -378,12 +380,15 @@ domEvents.forEach(function(event) {
 
     cancelBtn.onclick = function() {
 
-    event.seats++;
+    if(event.seats < event.maxSeats) {
 
-    seatText.textContent =
-        event.seats;
+        event.seats++;
 
-};
+        seatText.textContent = event.seats;
+
+    }
+
+};  
 
     eventContainer.appendChild(card);
 
@@ -495,8 +500,13 @@ async function fetchEventsAsync() {
         document.getElementById("loading").innerHTML =
             "";
 
-        displayApiEvents(data.slice(0, 5));
-
+displayApiEvents([
+    {title:"Music Festival"},
+    {title:"Sports Meet"},
+    {title:"Food Carnival"},
+    {title:"Book Fair"},
+    {title:"Art Exhibition"}
+]);
     }
 
     catch(error) {
@@ -566,3 +576,73 @@ const filteredEvents =
     );
 
 console.log(filteredEvents);
+
+/* Exercise 11 */
+
+document
+.getElementById("registrationForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let form = event.target;
+
+    let name =
+    form.elements["name"].value;
+
+let email =
+    form.elements["email"].value;
+
+   let selectedEvent =
+    form.elements["eventType"].value;
+
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("eventError").innerHTML = "";
+
+    let valid = true;
+
+    if (name.trim() === "") {
+
+        document.getElementById("nameError")
+        .textContent = "Name Required";
+
+        valid = false;
+    }
+
+    if (email.trim() === "" || !email.includes("@"))
+{
+    document.getElementById("emailError").textContent =
+        "Invalid Email";
+
+    valid = false;
+}
+
+    if (selectedEvent === "") {
+
+        document.getElementById("eventError").textContent =
+    "Select Event";
+
+        valid = false;
+    }
+
+    if (valid) {
+
+        alert("Registration Successful");
+         
+
+        console.log(
+            "Name:",
+            name,
+            "Email:",
+            email,
+            "Event:",
+            selectedEvent
+        );
+
+        form.reset();
+
+    }
+
+});
+
