@@ -314,3 +314,81 @@ let displayCards = eventList.map(function(event) {
 
 console.log("Display Cards:");
 console.log(displayCards);
+
+/* Exercise 7 */
+
+/* Access DOM Element */
+
+const eventContainer =
+    document.querySelector("#eventContainer");
+
+/* Events Data */
+
+const domEvents = [
+    {
+        name: "Music Festival",
+        seats: 5
+    },
+    {
+        name: "Sports Meet",
+        seats: 3
+    }
+];
+
+/* Create and Append Event Cards */
+
+domEvents.forEach(function(event) {
+
+    let card = document.createElement("div");
+
+    card.innerHTML = `
+        <h3>${event.name}</h3>
+        <p>Seats: <span>${event.seats}</span></p>
+        <button>Register</button>
+        <button>Cancel</button>
+    `;
+
+    let seatText =
+        card.querySelector("span");
+
+    let buttons =
+        card.querySelectorAll("button");
+
+    let registerBtn = buttons[0];
+    let cancelBtn = buttons[1];
+
+    /* Register */
+
+    registerBtn.addEventListener(
+        "click",
+        function() {
+
+            if (event.seats > 0) {
+
+                event.seats--;
+
+                seatText.textContent =
+                    event.seats;
+
+            }
+
+        }
+    );
+
+    /* Cancel */
+
+    cancelBtn.addEventListener(
+        "click",
+        function() {
+
+            event.seats++;
+
+            seatText.textContent =
+                event.seats;
+
+        }
+    );
+
+    eventContainer.appendChild(card);
+
+});
