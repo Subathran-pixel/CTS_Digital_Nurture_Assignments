@@ -86,3 +86,120 @@ function registerEvent(event) {
 
 registerEvent(events[0]);
 registerEvent(events[2]);
+
+/* Exercise 4 */
+
+let communityEvents = [];
+
+/* addEvent() */
+
+function addEvent(name, category, seats) {
+
+    communityEvents.push({
+        name: name,
+        category: category,
+        seats: seats
+    });
+
+    console.log(name + " added successfully");
+
+}
+
+/* registerUser() */
+
+function registerUser(eventName) {
+
+    let event = communityEvents.find(
+        e => e.name === eventName
+    );
+
+    if (event && event.seats > 0) {
+
+        event.seats--;
+
+        console.log(
+            "Registered for " + eventName
+        );
+
+    }
+    else {
+
+        console.log(
+            "Registration failed for " + eventName
+        );
+
+    }
+
+}
+
+/* filterEventsByCategory() */
+
+function filterEventsByCategory(category, callback) {
+
+    let filteredEvents =
+        communityEvents.filter(
+            event => event.category === category
+        );
+
+    callback(filteredEvents);
+
+}
+
+/* Closure */
+
+function registrationTracker(category) {
+
+    let totalRegistrations = 0;
+
+    return function () {
+
+        totalRegistrations++;
+
+        console.log(
+            category +
+            " Registrations: " +
+            totalRegistrations
+        );
+
+    };
+
+}
+
+let musicRegistrationCount =
+    registrationTracker("Music");
+
+/* Add Events */
+
+addEvent("Music Festival", "Music", 50);
+addEvent("Sports Meet", "Sports", 30);
+addEvent("Food Carnival", "Food", 20);
+
+/* Register Users */
+
+registerUser("Music Festival");
+
+musicRegistrationCount();
+musicRegistrationCount();
+
+/* Callback Function */
+
+function displayEvents(events) {
+
+    events.forEach(function(event) {
+
+        console.log(
+            event.name +
+            " - " +
+            event.category
+        );
+
+    });
+
+}
+
+/* Higher Order Function */
+
+filterEventsByCategory(
+    "Music",
+    displayEvents
+);
