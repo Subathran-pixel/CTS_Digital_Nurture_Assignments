@@ -1,34 +1,62 @@
+/* Universal Selector */
+* {
+    margin: 0;
+    padding: 0;
+}
+
 /* Body Styles */
 body {
     background-color: lightgray;
 }
 
-/* Welcome Banner Styles */
-#welcomeBanner {
+/* ID Selector */
+#mainHeader {
     background-color: blue;
+    color: white;
+    padding: 10px;
 }
 
-/* Highlight Text Styles */
-.highlight {
-    background-color: yellow;
+/* Element Selector */
+h2 {
+    color: darkgreen;
+    margin: 10px 0;
 }
 
-/* Event Image Styles */
+/* Class Selector */
+.eventCard {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Grouping Selector */
+h3,
+p {
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+/* Event Images */
 .eventImage {
     border: 2px solid black;
 }
 
-/* Registration Form Styles */
+/* Form Styles */
 form {
     border: 1px solid black;
     padding: 10px;
     width: 300px;
 }
 
-/* Main CTA Button Styles */
+/* Button Styles */
 button {
     background-color: #007BFF;
     color: white;
     padding: 8px;
     border: none;
+}
+
+/* Highlight Text */
+.highlight {
+    background-color: yellow;
 }
