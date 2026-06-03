@@ -53,9 +53,9 @@ p {
 
 /* Event Cards */
 .eventCard {
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 15px;
     text-align: center;
 }
 
@@ -178,4 +178,18 @@ td {
 /* Zebra Striping */
 tr:nth-child(even) td {
     background-color: #d9eaf7;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 3px solid red;
+}
+
+.hiddenBox {
+    visibility: hidden;
+}
+
+.noneBox {
+    display: none;
 }
