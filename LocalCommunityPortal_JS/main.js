@@ -583,18 +583,19 @@ document
 .getElementById("registrationForm")
 .addEventListener("submit", function(event) {
 
+    console.log("Form Submission Started");
+
     event.preventDefault();
 
     let form = event.target;
 
-    let name =
-    form.elements["name"].value;
+    let name = form.elements["name"].value;
+    let email = form.elements["email"].value;
+    let selectedEvent = form.elements["eventType"].value;
 
-let email =
-    form.elements["email"].value;
-
-   let selectedEvent =
-    form.elements["eventType"].value;
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Selected Event:", selectedEvent);
 
     document.getElementById("nameError").innerHTML = "";
     document.getElementById("emailError").innerHTML = "";
@@ -648,10 +649,15 @@ let email =
 
 async function submitRegistration(userData) {
 
+    console.log("Submitting Registration...");
+    console.log("Payload:", userData);
+
     document.getElementById("responseMessage")
         .textContent = "Submitting...";
 
     setTimeout(async function () {
+
+        debugger;
 
         try {
 
@@ -690,6 +696,9 @@ async function submitRegistration(userData) {
                 "Error connecting to server";
 
         }
+
+        console.log("Sending Data to Server:");
+console.log(userData);
 
     }, 2000);
 
