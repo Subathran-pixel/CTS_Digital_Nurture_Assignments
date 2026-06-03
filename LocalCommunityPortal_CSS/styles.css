@@ -6,16 +6,23 @@
 
 /* Body Styles */
 body {
-    background-color: lightgray;
+    background-color: #d9d9d9;
+}
+
+body {
+    background-color: #d9d9d9;
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 /* ID Selector */
 #mainHeader {
-    background-color: blue;
-    color: white;
+    background-color: rgba(0, 0, 255, 0.8);
+    color: #FFFFFF;
     padding: 10px;
 }
-
 /* Element Selector */
 h2 {
     color: darkgreen;
@@ -59,4 +66,11 @@ button {
 /* Highlight Text */
 .highlight {
     background-color: yellow;
+}
+
+h1,
+h2 {
+    background: linear-gradient(to right, #007BFF, #00C6FF);
+    color: white;
+    padding: 10px;
 }
