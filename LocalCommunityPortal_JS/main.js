@@ -203,3 +203,61 @@ filterEventsByCategory(
     "Music",
     displayEvents
 );
+
+/* Exercise 5 */
+
+/* Event Class */
+
+class Event {
+
+    constructor(name, date, seats) {
+
+        this.name = name;
+        this.date = date;
+        this.seats = seats;
+
+    }
+
+}
+
+/* Prototype Method */
+
+Event.prototype.checkAvailability = function () {
+
+    if (this.seats > 0) {
+        console.log(this.name + " is available");
+    }
+    else {
+        console.log(this.name + " is full");
+    }
+
+};
+
+/* Create Objects */
+
+let event1 = new Event(
+    "Music Festival",
+    "2026-06-15",
+    50
+);
+
+let event2 = new Event(
+    "Food Carnival",
+    "2026-07-20",
+    0
+);
+
+/* Check Availability */
+
+event1.checkAvailability();
+event2.checkAvailability();
+
+/* Object.entries() */
+
+Object.entries(event1).forEach(function(entry) {
+
+    console.log(
+        entry[0] + " : " + entry[1]
+    );
+
+});
