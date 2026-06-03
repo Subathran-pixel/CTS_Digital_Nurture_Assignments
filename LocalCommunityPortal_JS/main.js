@@ -704,3 +704,39 @@ console.log(userData);
 
 }
 
+/* Exercise 14 */
+
+/* jQuery Click Event */
+
+
+
+$(document).ready(function () {
+
+    $("#registerBtn").click(function () {
+
+        console.log("Register Button Clicked");
+
+    });
+
+    $("#hideEvents").click(function () {
+
+        $(".eventCard").fadeOut();
+
+    });
+
+    $("#showEvents").click(function () {
+
+        $(".eventCard").fadeIn();
+
+    });
+
+});
+
+/* Benefit of Frameworks
+
+React and Vue make UI development easier by
+using reusable components and efficient state
+management, reducing the amount of manual DOM
+manipulation required.
+
+*/
