@@ -327,10 +327,12 @@ const eventContainer =
 const domEvents = [
     {
         name: "Music Festival",
+        category: "Music",
         seats: 5
     },
     {
         name: "Sports Meet",
+        category: "Sports",
         seats: 3
     }
 ];
@@ -359,36 +361,58 @@ domEvents.forEach(function(event) {
 
     /* Register */
 
-    registerBtn.addEventListener(
-        "click",
-        function() {
+    registerBtn.onclick = function() {
 
-            if (event.seats > 0) {
+    if (event.seats > 0) {
 
-                event.seats--;
+        event.seats--;
 
-                seatText.textContent =
-                    event.seats;
+        seatText.textContent =
+            event.seats;
 
-            }
+    }
 
-        }
-    );
+};
 
     /* Cancel */
 
-    cancelBtn.addEventListener(
-        "click",
-        function() {
+    cancelBtn.onclick = function() {
 
-            event.seats++;
+    event.seats++;
 
-            seatText.textContent =
-                event.seats;
+    seatText.textContent =
+        event.seats;
 
-        }
-    );
+};
 
     eventContainer.appendChild(card);
 
 });
+
+/* Exercise 8 */
+
+/* onchange */
+
+function filterEvents() {
+
+    let category =
+        document.getElementById("categoryFilter").value;
+
+    console.log(
+        "Selected Category : " + category
+    );
+
+}
+
+/* keydown */
+
+function searchEvents(event) {
+
+    console.log("Key Pressed : " + event.key);
+
+    let searchText =
+        document.getElementById("searchBox").value;
+
+    console.log("Searching : " + searchText);
+
+}
