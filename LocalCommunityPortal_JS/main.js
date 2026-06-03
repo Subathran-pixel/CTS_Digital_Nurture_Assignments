@@ -509,3 +509,60 @@ async function fetchEventsAsync() {
     }
 
 }
+
+/* Exercise 10 */
+
+/* Default Parameter */
+
+function addNewEvent(
+    name = "Unknown Event",
+    category = "General",
+    seats = 0
+) {
+
+    let event = {
+        name,
+        category,
+        seats
+    };
+
+    console.log(event);
+
+}
+
+/* Call Function */
+
+addNewEvent(
+    "Coding Workshop",
+    "Education",
+    25
+);
+
+/* Destructuring */
+
+const sampleEvent = {
+    name: "Music Festival",
+    category: "Music",
+    seats: 50
+};
+
+const {
+    name,
+    category,
+    seats
+} = sampleEvent;
+
+console.log(name);
+console.log(category);
+console.log(seats);
+
+/* Spread Operator */
+
+const clonedEvents = [...eventList];
+
+const filteredEvents =
+    clonedEvents.filter(
+        event => event.category === "Music"
+    );
+
+console.log(filteredEvents);
