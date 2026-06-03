@@ -261,3 +261,56 @@ Object.entries(event1).forEach(function(entry) {
     );
 
 });
+
+/* Exercise 6 */
+
+/* Array of Events */
+
+let eventList = [];
+
+/* Add Events using push() */
+
+eventList.push({
+    name: "Music Festival",
+    category: "Music"
+});
+
+eventList.push({
+    name: "Baking",
+    category: "Workshop"
+});
+
+eventList.push({
+    name: "Sports Meet",
+    category: "Sports"
+});
+
+eventList.push({
+    name: "Rock Concert",
+    category: "Music"
+});
+
+console.log("All Events:");
+console.log(eventList);
+
+/* Filter Music Events */
+
+let musicEvents = eventList.filter(function(event) {
+
+    return event.category === "Music";
+
+});
+
+console.log("Music Events:");
+console.log(musicEvents);
+
+/* Format Display Cards using map() */
+
+let displayCards = eventList.map(function(event) {
+
+    return "Workshop on " + event.name;
+
+});
+
+console.log("Display Cards:");
+console.log(displayCards);
